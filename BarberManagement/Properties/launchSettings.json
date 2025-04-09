@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BarberManagement (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "BarberManagement (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
