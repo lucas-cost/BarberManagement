@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using BarberManagement.Data;
 using BarberManagement.Views;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -36,7 +37,7 @@ namespace BarberManagement
             this.InitializeComponent();
         }
 
-        public static Window MainWindow { get; private set; }
+        public static Window? MainAppWindow { get; private set; }
 
         /// <summary>
         /// Invoked when the application is launched.
@@ -44,14 +45,17 @@ namespace BarberManagement
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            MainWindow = new Window();
+            MainAppWindow = new Window();
             Frame frame = new Frame();
             frame.Navigate(typeof(LoginPage));
 
-            MainWindow.Content = frame;
-            MainWindow.Activate();
-        }
+            MainAppWindow.Content = frame;
+            MainAppWindow.Activate();
 
-        private Window? m_window;
+            using (var db = new AppDbContext())
+            {
+                db.Database.EnsureCreated();
+            }
+        }
     }
 }

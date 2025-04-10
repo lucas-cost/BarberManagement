@@ -1,5 +1,8 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml;
+using BarberManagement.Data;
+using System;
+using System.Linq;
 
 namespace BarberManagement.Views
 {
@@ -10,25 +13,23 @@ namespace BarberManagement.Views
             this.InitializeComponent();
         }
 
-        private void Entrar_Click(object sender, RoutedEventArgs e)
+        private async void Entrar_Click(object sender, RoutedEventArgs e)
         {
-            string email = EmailBox.Text;
+            string email = EmailBox.Text.Trim();
             string senha = SenhaBox.Password;
 
-            if (email == "hidaansuke@gmail.com" && senha == "1234")
+            using var db = new AppDbContext();
+
+            var usuario = db.Users.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+
+            if (usuario != null)
             {
-                // Cria a nova página principal
-                var mainPage = new MainPage();
+                // Login bem-sucedido
+                var frame = (Frame)App.MainAppWindow!.Content;
 
-                // Acessa a janela principal (WinUI 3)
-                var window = App.MainWindow;
-
-                if (window != null)
+                if (frame != null)
                 {
-                    Frame frame = new Frame();
                     frame.Navigate(typeof(MainPage));
-                    window.Content = frame;
-                    window.Activate();
                 }
             }
             else
@@ -40,7 +41,7 @@ namespace BarberManagement.Views
                     CloseButtonText = "OK",
                     XamlRoot = this.XamlRoot
                 };
-                _ = dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
         }
     }
