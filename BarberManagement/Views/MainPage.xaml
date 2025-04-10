@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="BarberManagement.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BarberManagement.Views"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Menu -->
+            <ColumnDefinition Width="*"/>
+            <!-- Conteúdo -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu lateral -->
+        <StackPanel Background="#2d2d30" Padding="20">
+            <TextBlock Text="BarberManagement" Foreground="White" FontSize="20" Margin="0 0 0 30"/>
+            <Button Content="Dashboard" Margin="0 5" Click="Dashboard_Click"/>
+            <Button Content="Clientes" Margin="0 5"/>
+            <Button Content="Agendamentos" Margin="0 5"/>
+            <Button Content="Financeiro" Margin="0 5"/>
+        </StackPanel>
+
+        <!-- Conteúdo principal -->
+        <Grid Grid.Column="1" Padding="20">
+            <TextBlock Text="Bem-vindo(a), admin!" FontSize="28" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Page>
