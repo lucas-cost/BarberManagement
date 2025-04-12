@@ -3,15 +3,83 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BarberManagement.Views"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
 
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Spacing="10">
-            <TextBlock Text="Bem vindo!" FontSize="24" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,20"/>
-            <TextBox x:Name="EmailBox" PlaceholderText="E-mail"/>
-            <PasswordBox x:Name="SenhaBox" PlaceholderText="Senha"/>
-            <Button Content="Entrar" Click="Entrar_Click" Style="{StaticResource AccentButtonStyle}"/>
-            <HyperlinkButton Content="Cadastrar novo usuário" Click="Cadastrar_Click" HorizontalAlignment="Center"/>
-        </StackPanel>
-    </Grid>
+	<Grid>
+		<!-- Fundo com gradiente -->
+		<Grid.Background>
+			<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+				<GradientStop Color="{ThemeResource SystemChromeLowColor}" Offset="0"/>
+				<GradientStop Color="{ThemeResource SystemChromeMediumLowColor}" Offset="1"/>
+			</LinearGradientBrush>
+		</Grid.Background>
+
+		<!-- Painel principal -->
+		<Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                CornerRadius="12"
+                Padding="24"
+                MaxWidth="400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                RenderTransformOrigin="0.5,0.5">
+			<Border.RenderTransform>
+				<ScaleTransform/>
+			</Border.RenderTransform>
+			<Border.Transitions>
+				<TransitionCollection>
+					<EntranceThemeTransition FromVerticalOffset="50"/>
+				</TransitionCollection>
+			</Border.Transitions>
+
+			<StackPanel Spacing="16">
+				<!-- Título -->
+				<TextBlock Text="Barber Management"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="{ThemeResource SystemAccentColor}"
+                           TextAlignment="Center"
+                           Margin="0,0,0,24"/>
+
+				<!-- Email -->
+				<Grid>
+					<TextBox x:Name="EmailBox"
+                             Style="{StaticResource ModernTextBoxStyle}"
+                             PlaceholderText="E-mail"
+                             Header="E-mail"/>
+					<FontIcon Glyph=""
+                              FontFamily="Segoe MDL2 Assets"
+                              FontSize="16"
+                              Margin="0,24,12,0"
+                              HorizontalAlignment="Right"
+                              Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+				</Grid>
+
+				<!-- Senha -->
+				<Grid>
+					<PasswordBox x:Name="SenhaBox"
+                                 Style="{StaticResource ModernPasswordBoxStyle}"
+                                 PlaceholderText="Senha"
+                                 Header="Senha"/>
+					<FontIcon Glyph=""
+                              FontFamily="Segoe MDL2 Assets"
+                              FontSize="16"
+                              Margin="0,24,12,0"
+                              HorizontalAlignment="Right"
+                              Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+				</Grid>
+
+				<!-- Botão Entrar -->
+				<Button Style="{StaticResource ModernButtonStyle}"
+                        Content="Entrar"
+                        Click="Entrar_Click"/>
+
+				<!-- Link para cadastro -->
+				<HyperlinkButton Content="Cadastrar novo usuário"
+                                 Click="Cadastrar_Click"
+                                 HorizontalAlignment="Center"
+                                 Foreground="{ThemeResource SystemAccentColor}"
+                                 FontSize="14"/>
+			</StackPanel>
+		</Border>
+	</Grid>
 </Page>
