@@ -14,19 +14,5 @@ namespace BarberManagement.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite($"Data Source={DbPath}");
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Seed com usuário admin
-            modelBuilder.Entity<User>().HasData(new User
-            {
-                Id = 1,
-                Email = "admin@xavier.com",
-                Senha = "1234",
-                IsAdmin = true
-            });
-        }
     }
 }
