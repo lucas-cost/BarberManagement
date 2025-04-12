@@ -46,7 +46,7 @@
                              Style="{StaticResource ModernTextBoxStyle}"
                              PlaceholderText="E-mail"
                              Header="E-mail"/>
-					<FontIcon Glyph=""
+                    <FontIcon Glyph="&#xE119;"
                               FontFamily="Segoe MDL2 Assets"
                               FontSize="16"
                               Margin="0,24,12,0"
@@ -55,20 +55,21 @@
 				</Grid>
 
 				<!-- Senha -->
-				<Grid>
-					<PasswordBox x:Name="SenhaBox"
+                <Grid>
+                    <PasswordBox x:Name="SenhaBox"
                                  Style="{StaticResource ModernPasswordBoxStyle}"
                                  PlaceholderText="Senha"
-                                 Header="Senha"/>
-					<FontIcon Glyph=""
+                                 Header="Senha"
+                                 PasswordRevealMode="Hidden" />
+                    <FontIcon Glyph="&#xE192;"
                               FontFamily="Segoe MDL2 Assets"
                               FontSize="16"
                               Margin="0,24,12,0"
                               HorizontalAlignment="Right"
                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
-				</Grid>
+                </Grid>
 
-				<!-- Botão Entrar -->
+                <!-- Botão Entrar -->
 				<Button Style="{StaticResource ModernButtonStyle}"
                         Content="Entrar"
                         Click="Entrar_Click"/>
