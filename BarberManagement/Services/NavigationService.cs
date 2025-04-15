@@ -1,5 +1,6 @@
 ﻿using BarberManagement.Views;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace BarberManagement.Services
 {
@@ -14,17 +15,17 @@ namespace BarberManagement.Services
 
         public void NavigateToMainPage()
         {
-            _frame.Navigate(typeof(MainPage));
+            _frame.Navigate(typeof(MainPage), null, new EntranceNavigationTransitionInfo());
         }
 
         public void NavigateToRegisterPage()
         {
-            _frame.Navigate(typeof(RegisterPage));
+            _frame.Navigate(typeof(RegisterPage), null, new EntranceNavigationTransitionInfo());
         }
 
         public void NavigateToLoginPage()
         {
-            _frame.Navigate(typeof(LoginPage));
+            _frame.Navigate(typeof(LoginPage), null, new EntranceNavigationTransitionInfo());
         }
     }
 }

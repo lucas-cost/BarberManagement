@@ -3,6 +3,7 @@ using BarberManagement.Views;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Media.Animation;
 using System;
 using System.Diagnostics;
 
@@ -60,7 +61,7 @@ namespace BarberManagement
 
                 RootFrame = new Frame();
                 MainAppWindow.Content = RootFrame;
-                RootFrame.Navigate(typeof(LoginPage));
+                RootFrame.Navigate(typeof(LoginPage), null, new EntranceNavigationTransitionInfo());
                 Debug.WriteLine("Navegação para LoginPage concluída.");
 
                 MainAppWindow.Activate();
