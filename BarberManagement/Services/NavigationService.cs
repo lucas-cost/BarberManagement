@@ -27,5 +27,10 @@ namespace BarberManagement.Services
         {
             _frame.Navigate(typeof(LoginPage), null, new EntranceNavigationTransitionInfo());
         }
+
+        public void NavigateToRecoverPage()
+        {
+            _frame.Navigate(typeof(RecoverPage), null, new EntranceNavigationTransitionInfo());
+        }
     }
 }

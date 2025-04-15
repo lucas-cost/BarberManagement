@@ -5,5 +5,6 @@
         void NavigateToMainPage();
         void NavigateToRegisterPage();
         void NavigateToLoginPage();
+        void NavigateToRecoverPage();
     }
 }

@@ -59,6 +59,12 @@ namespace BarberManagement.ViewModels
             _navigationService.NavigateToRegisterPage();
         }
 
+        [RelayCommand]
+        private void Recover()
+        {
+            _navigationService.NavigateToRecoverPage();
+        }
+
         private async Task ShowErrorDialogAsync(string message)
         {
             var xamlRoot = App.MainAppWindow?.Content?.XamlRoot;
