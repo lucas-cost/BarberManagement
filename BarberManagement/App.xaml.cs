@@ -11,6 +11,7 @@ namespace BarberManagement
     public partial class App : Application
     {
         public static Window? MainAppWindow { get; private set; }
+        public static Frame? RootFrame { get; private set; }
 
         public App()
         {
@@ -57,9 +58,9 @@ namespace BarberManagement
                 MainAppWindow.AppWindow.Resize(new Windows.Graphics.SizeInt32(900, 700));
                 MainAppWindow.AppWindow.Move(new Windows.Graphics.PointInt32(100, 100));
 
-                var rootFrame = new Frame();
-                MainAppWindow.Content = rootFrame;
-                rootFrame.Navigate(typeof(LoginPage));
+                RootFrame = new Frame();
+                MainAppWindow.Content = RootFrame;
+                RootFrame.Navigate(typeof(LoginPage));
                 Debug.WriteLine("Navegação para LoginPage concluída.");
 
                 MainAppWindow.Activate();

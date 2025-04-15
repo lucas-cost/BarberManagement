@@ -1,5 +1,5 @@
-﻿<Page
-    x:Class="BarberManagement.Views.LoginPage"
+<Page
+    x:Class="BarberManagement.Views.RegisterPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BarberManagement.Views"
@@ -33,7 +33,7 @@
 
             <StackPanel Spacing="16">
                 <!-- Título -->
-                <TextBlock Text="Barber Management"
+                <TextBlock Text="Cadastrar Usuário"
                            FontSize="28"
                            FontWeight="Bold"
                            Foreground="{ThemeResource SystemAccentColor}"
@@ -69,14 +69,20 @@
                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
                 </Grid>
 
-                <!-- Botão Entrar -->
-                <Button Style="{StaticResource ModernButtonStyle}"
-                        Content="Entrar"
-                        Command="{Binding LoginCommand}"/>
+                <!-- É administrador? -->
+                <CheckBox Content="É administrador?"
+                          IsChecked="{Binding IsAdmin, Mode=TwoWay}"
+                          Style="{StaticResource CheckBoxStyle}"/>
 
-                <!-- Link para cadastro -->
-                <HyperlinkButton Content="Cadastrar novo usuário"
-                                 Command="{Binding RegisterCommand}"
+                <!-- Botão Cadastrar -->
+                <Button Style="{StaticResource ModernButtonStyle}"
+                        Content="Cadastrar"
+                        Command="{Binding RegisterCommand}"
+                        HorizontalAlignment="Stretch"/>
+
+                <!-- Botão Voltar -->
+                <HyperlinkButton Content="Voltar para o login"
+                                 Command="{Binding BackToLoginCommand}"
                                  HorizontalAlignment="Center"
                                  Foreground="{ThemeResource SystemAccentColor}"
                                  FontSize="14"/>
