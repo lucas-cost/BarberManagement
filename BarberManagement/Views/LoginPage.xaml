@@ -18,7 +18,8 @@
         <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 CornerRadius="12"
                 Padding="24"
-                MaxWidth="400"
+                Width="400"
+                MaxHeight="500"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 RenderTransformOrigin="0.5,0.5">
@@ -45,7 +46,8 @@
                     <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource ModernTextBoxStyle}"
                              PlaceholderText="E-mail"
-                             Header="E-mail"/>
+                             Header="E-mail"
+                             HorizontalAlignment="Stretch"/>
                     <FontIcon Glyph=""
                               FontFamily="Segoe MDL2 Assets"
                               FontSize="16"
@@ -60,7 +62,8 @@
                                  Style="{StaticResource ModernPasswordBoxStyle}"
                                  PlaceholderText="Senha"
                                  Header="Senha"
-                                 PasswordRevealMode="Hidden"/>
+                                 PasswordRevealMode="Hidden"
+                                 HorizontalAlignment="Stretch"/>
                     <FontIcon Glyph=""
                               FontFamily="Segoe MDL2 Assets"
                               FontSize="16"
@@ -72,7 +75,8 @@
                 <!-- Botão Entrar -->
                 <Button Style="{StaticResource ModernButtonStyle}"
                         Content="Entrar"
-                        Command="{Binding LoginCommand}"/>
+                        Command="{Binding LoginCommand}"
+                        HorizontalAlignment="Stretch"/>
 
                 <!-- Link para cadastro -->
                 <HyperlinkButton Content="Cadastrar novo usuário"
